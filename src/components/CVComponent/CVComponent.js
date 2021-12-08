@@ -21,8 +21,8 @@ let prensaIberica = {
 
 let GMV = {
   'business':'GMV',
-  'date':'2017-05 - 2019-05',
-  'job': 'Junior Consultant',
+  'date':'2019-07 - 2020-03',
+  'job': 'Junior Project Engineer',
   'product':'Satellite Reference Database - METEOSAT Third Generation.',
   'bulletPoints': ['Developed a configuration database of telemetry & telecommand patterns using <b> Oracle SQL </b>, <b> Java </b> <b>Oracle WebLogic</b>.',
                 'Finished an internal version control system with synchronization capabilities. A custom Git-like tool for the satellite components moduling.'],
@@ -31,8 +31,8 @@ let GMV = {
 
 let LEDA = {
   'business':'LEDA-MC Consulting',
-  'date':'2019-07 - 2020-03',
-  'job': 'Junior Project Engineer',
+  'date':'2017-05 - 2019-05',
+  'job': 'Junior Consultant',
   'product':'Productivity Software consultant for a worldwide telecomunications company.',
   'bulletPoints': ['Feasability approvals based on IFPUG Methodology.',
                   'Productivity analysis of vendors.',
