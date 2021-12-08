@@ -1,0 +1,7 @@
+.ProjectsComponent {}
+
+
+.grid{
+    display: flex;
+    flex-wrap: wrap;
+}

@@ -1,0 +1,7 @@
+.SocialContactComponent {
+    display: grid;
+    grid-template-rows: 5fr 1fr;
+    border: 1px solid black;
+    border-radius: 20px;
+    height: 300px;
+}

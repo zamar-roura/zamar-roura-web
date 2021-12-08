@@ -1,0 +1,9 @@
+.NavItemComponent {
+    padding: 7px 0;
+    display:grid;
+    grid-template-columns:  1fr 2.2fr;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: var(--primary-color) !important;
+}

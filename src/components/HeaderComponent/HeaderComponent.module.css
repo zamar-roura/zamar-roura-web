@@ -1,0 +1,14 @@
+.HeaderComponent {
+    display:grid;
+    grid-template-rows:  110px 130px 1fr;
+    margin-right:-40px;
+    border-right: 1px solid var(--secondary-color);
+}
+
+.title {
+    font-size: 45px;
+    color: var(--primary-color)
+}
+.subtitle{
+    font-size: 15px;
+}

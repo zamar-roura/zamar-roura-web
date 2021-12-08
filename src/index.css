@@ -1,4 +1,22 @@
+:root{
+  --background: #FFAC4D;
+  --primary-color: #ffffff;
+  --secondary-color:#3A3335;
+  --third-color: #D81E5B;
+  --forth-color: #7C898B;
+  --fontSize: calc(20px + 2vmin);
+}
+body::-webkit-scrollbar{
+  width: 0.25rem;
+}
 
+body::-webkit-scrollbar-track{
+  background: var(--primary-color);
+}
+
+body::-webkit-scrollbar-thumb{
+  background: var(--third-color);
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

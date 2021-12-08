@@ -1,0 +1,8 @@
+.ContactComponent {
+
+}
+.grid{
+    display:grid;
+    grid-template-columns: 300px 300px;
+    gap: 30px 70px;
+}

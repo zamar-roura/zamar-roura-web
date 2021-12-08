@@ -1,0 +1,59 @@
+
+.primary-color{
+  color: var(--primary-color);
+}
+.secondary-color{
+  color: var(--secondary-color);
+}
+
+.third-color{
+  color: var(--third-color);
+}
+
+.forth-color{
+  color: var(--forth-color);
+}
+
+.active{
+  color: var(--secondary-color);
+}
+
+.center{
+  display: flex;
+  justify-content: center; /* X */
+  align-items: center; /* Y */
+}
+
+.noma{
+  margin:0 !important;
+}
+
+.nopa{
+  margin: 0 !important;
+}
+.App {
+  text-align: start;
+}
+
+.App-header {
+  background-color: var(--background);
+  min-height: 100vh;
+  color: var(--secondary-color);
+}
+.grid{
+  padding: 50px 20px;
+  display:grid;
+  grid-template-columns: 150px 1fr;
+  column-gap: 80px;
+}
+
+a {
+  text-decoration: None;
+  color: inherit;
+}
+
+a:hover{
+  text-decoration: underline;
+  text-decoration-color: var(--secondary-color);
+  color: inherit;
+}

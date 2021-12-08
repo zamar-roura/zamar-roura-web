@@ -1,0 +1,13 @@
+.CompanyCVComponent {
+
+
+}
+.space{
+    padding:0 15px;
+}
+.timeline{
+    padding: 0 15px;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    width:900px;
+}
