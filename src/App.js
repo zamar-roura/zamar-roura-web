@@ -15,7 +15,7 @@ function App() {
         <HeaderComponent></HeaderComponent>
         <NavBarComponent></NavBarComponent>
         </div>  
-        <div className="desktop-margin-left">
+        <div className="responsive-margin">
         <Routes> 
             <Route path="/" element={<HomeComponent/>}/>
             <Route path="/cv" element={<CVComponent/>}/>

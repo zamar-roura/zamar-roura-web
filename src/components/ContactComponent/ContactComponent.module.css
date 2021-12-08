@@ -2,7 +2,8 @@
 
 }
 .grid{
-    display:grid;
-    grid-template-columns: 300px 300px;
-    gap: 30px 70px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:40px;
 }

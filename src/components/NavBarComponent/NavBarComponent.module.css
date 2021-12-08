@@ -2,8 +2,10 @@
     .NavBarComponent{
             display: flex;
             flex-direction: row;
+            position:fixed;
+            justify-content: space-evenly;
             bottom: 0;
-            position: fixed;
+            width: 100%;
             background-color: var(--background-darker);
     }
 }

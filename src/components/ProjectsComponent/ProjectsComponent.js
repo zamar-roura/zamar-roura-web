@@ -41,7 +41,7 @@ let TinderInstagramMining={
 }
 const ProjectsComponent = () => (
   <div className={styles.ProjectsComponent}>
-    <h1>Current Online Projects</h1>
+    <h1 className="nomato">Current Online Projects</h1>
     <div className={styles.grid}>
       <ProjectBoxComponent project={tweetToLlamaBot}></ProjectBoxComponent>
       <ProjectBoxComponent project={threeTopThree}></ProjectBoxComponent>

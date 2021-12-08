@@ -5,6 +5,7 @@
 @media screen and (max-width: 600px) {
 .HomeComponent {
     font-size: 25px;
-
+    margin: auto;
+    width: 80%;
 }
 }

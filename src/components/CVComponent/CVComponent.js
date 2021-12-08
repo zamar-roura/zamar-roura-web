@@ -45,7 +45,7 @@ let LEDA = {
 const CVComponent = () => (
  
   <div className={styles.CVComponent}>
-    <h1>Curriculum Vitae</h1>
+    <h1 className="nomato">Curriculum Vitae</h1>
 
     <div>
       <h2>Experience</h2>

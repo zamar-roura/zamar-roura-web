@@ -11,7 +11,7 @@ import { ReactComponent as Linkedin } from '../../img/social/linkedin.svg';
 const ContactComponent = () => (
 
   <div className={styles.ContactComponent}>
-    <h1> You can contact me in:</h1>
+    <h1 className="nomato"> You can contact me in:</h1>
     <div className={styles.grid}>
       <SocialContactComponent svg={Gmail} title="EMAIL" href="mailto:zamarfazal@gmail.com"></SocialContactComponent>
       <SocialContactComponent svg={Github} title="GITHUB" href="https://github.com/zamar-roura"></SocialContactComponent>

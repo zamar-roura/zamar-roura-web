@@ -7,3 +7,11 @@
     font-size: 20px;
     color: var(--primary-color) !important;
 }
+
+@media screen and (max-width: 600px) {
+    .NavItemComponent{
+        display: inline-block;
+        text-align: center;
+        color: var(--primary-color) !important;
+    }
+}
