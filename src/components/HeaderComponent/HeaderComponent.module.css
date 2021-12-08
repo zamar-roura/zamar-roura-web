@@ -18,7 +18,9 @@
         display: flex;
         justify-items: center;
         align-items: center;
+        text-align: center;
         width:100%;
+        line-height: var(--header-height);
         height: var(--header-height);
         background: var(--background-darker);
     }
