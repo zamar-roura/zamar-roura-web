@@ -1,8 +1,6 @@
 .HeaderComponent {
-    display:grid;
-    grid-template-rows:  110px 130px 1fr;
-    margin-right:-40px;
-    border-right: 1px solid var(--secondary-color);
+    display:flex;
+    flex-direction: column;
 }
 
 .title {
@@ -12,3 +10,24 @@
 .subtitle{
     font-size: 15px;
 }
+
+@media screen and (max-width: 600px) {
+    .HeaderComponent{
+        top:0;
+        position: absolute;
+        display: flex;
+        justify-items: center;
+        align-items: center;
+        width:100%;
+        height: var(--header-height);
+        background: var(--background-darker);
+    }
+
+    .title {
+        font-size: 25px;
+        color: var(--primary-color)
+    }
+    .subtitle{
+        display:None;
+    }
+  }

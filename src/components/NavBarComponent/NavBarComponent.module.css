@@ -1,0 +1,9 @@
+@media screen and (max-width: 600px) {
+    .NavBarComponent{
+            display: flex;
+            flex-direction: row;
+            bottom: 0;
+            position: fixed;
+            background-color: var(--background-darker);
+    }
+}

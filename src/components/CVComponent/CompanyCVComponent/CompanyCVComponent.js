@@ -9,7 +9,7 @@ const CompanyCVComponent = (props) => (
       <div className={styles.space}>
         <u>{props.company['product']}</u>
         <ul>
-          {props.company['bulletPoints'].map(d => (<li> <div key={d} dangerouslySetInnerHTML={{ __html: d }}></div></li>))}
+          {props.company['bulletPoints'].map((d,row) => (<li> <div key={row} dangerouslySetInnerHTML={{ __html: d }}></div></li>))}
         </ul>
       </div>
     </div>

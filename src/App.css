@@ -1,4 +1,5 @@
 
+/* COLORS */
 .primary-color{
   color: var(--primary-color);
 }
@@ -12,6 +13,38 @@
 
 .forth-color{
   color: var(--forth-color);
+}
+
+
+/* GRID */
+.left-side{
+  display:flex;
+  flex-direction: column;
+  width:170px;
+  padding-right: 10px;
+  border-right: 1px solid var(--secondary-color);
+}
+
+@media screen and (max-width: 600px) {
+  .left-side{
+    border:none;
+    display:flex;
+    width:auto;
+    padding:0;
+    margin:0;
+  }
+}
+
+.main-grid{
+  padding: 50px 20px;
+  display:flex;
+  flex-direction: row;
+}
+
+@media screen and (max-width: 600px) {
+  .main-grid{
+    padding: 0;
+  }
 }
 
 .active{
@@ -34,17 +67,14 @@
 .App {
   text-align: start;
 }
+.nopa{
+  margin: 0 !important;
+}
 
 .App-header {
   background-color: var(--background);
   min-height: 100vh;
   color: var(--secondary-color);
-}
-.grid{
-  padding: 50px 20px;
-  display:grid;
-  grid-template-columns: 150px 1fr;
-  column-gap: 80px;
 }
 
 a {
@@ -56,4 +86,15 @@ a:hover{
   text-decoration: underline;
   text-decoration-color: var(--secondary-color);
   color: inherit;
+}
+
+.desktop-margin-left{
+  margin-left: 40px;
+}
+/* RESETS */
+@media screen and (max-width: 600px) {
+  .desktop-margin-left{
+    margin:0;
+    margin-top:calc(var(--header-height) + 10px)
+  }
 }
