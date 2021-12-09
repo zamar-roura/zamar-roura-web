@@ -1,13 +1,12 @@
 import React from 'react';
 import styles from './NavItemComponent.module.css';
 import { NavLink } from 'react-router-dom';
-import {isMobile} from 'react-device-detect'
 
 const NavItemComponent = (props) => (
-  <div className={styles.NavItemComponent +(props.name !=="HOME" ? ' ' + styles.BorderLeft:'')}>
+    <NavLink className={styles.NavItemComponent +(props.name !=="HOME" ? ' ' + styles.BorderLeft:'')} to={props.to}>
     <img src={props.src} width ="20px" alt={props.name + " icon"}></img>
-    <NavLink to={props.to}>{props.name}</NavLink>
-  </div>
+    <div>{props.name}</div>
+    </NavLink>
 );
 
 NavItemComponent.propTypes = {};
