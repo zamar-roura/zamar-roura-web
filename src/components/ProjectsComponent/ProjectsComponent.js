@@ -42,7 +42,9 @@ let TinderInstagramMining={
 }
 const ProjectsComponent = () => {
   const location = useLocation();
-  React.useEffect(pageview(location.pathname));(
+  React.useEffect(pageview(location.pathname));
+  
+  return(
   <div className={styles.ProjectsComponent}>
     <h1 className="nomato">Current Online Projects</h1>
     <div className={styles.grid}>
