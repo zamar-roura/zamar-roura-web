@@ -1,11 +1,13 @@
 import './App.css';
+import React from 'react';
 import HeaderComponent from './components/HeaderComponent/HeaderComponent';
 import HomeComponent from './components/HomeComponent/HomeComponent';
 import CVComponent from './components/CVComponent/CVComponent';
 import ProjectsComponent from './components/ProjectsComponent/ProjectsComponent';
 import ContactComponent from './components/ContactComponent/ContactComponent';
-import {Routes,Route} from 'react-router-dom';
+import { Routes, Route} from "react-router-dom";
 import NavBarComponent from './components/NavBarComponent/NavBarComponent';
+
 
 function App() {
   return (

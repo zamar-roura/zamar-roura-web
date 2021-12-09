@@ -1,7 +1,13 @@
 import React from 'react';
 import styles from './HomeComponent.module.css';
-import {isMobile} from 'react-device-detect'
-const HomeComponent = () => (
+import {isMobile} from 'react-device-detect';
+import {pageview} from '../../functions/analytics';
+import { useLocation } from 'react-router-dom';
+
+const HomeComponent = () => {
+  const location = useLocation();
+  React.useEffect(pageview(location.pathname));
+  return (
   <div className={styles.HomeComponent}>
       Hello There! 
       <p>My name is <span className="primary-color">Zamar</span>.</p>
@@ -9,7 +15,7 @@ const HomeComponent = () => (
       <p>I thrive in the search of unexplored concepts of common day tasks.</p>
       <p>{isMobile ? '↘️' :'↖️' } Have  a little peak of what I do...</p>
   </div>
-);
+);}
 
 HomeComponent.propTypes = {};
 

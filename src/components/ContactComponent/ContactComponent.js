@@ -8,8 +8,13 @@ import { ReactComponent as StackOverflow } from '../../img/social/stackoverflow.
 import { ReactComponent as Steam } from '../../img/social/steam.svg';
 import { ReactComponent as Twitter } from '../../img/social/twitter.svg';
 import { ReactComponent as Linkedin } from '../../img/social/linkedin.svg';
-const ContactComponent = () => (
+import {pageview} from '../../functions/analytics';
+import { useLocation } from 'react-router-dom';
 
+const ContactComponent = () =>  {
+  const location = useLocation();
+  React.useEffect(pageview(location.pathname));
+  return(
   <div className={styles.ContactComponent}>
     <h1 className="nomato"> You can contact me in:</h1>
     <div className={styles.grid}>
@@ -26,7 +31,7 @@ const ContactComponent = () => (
     </div>
   </div>
 );
-
+  }
 ContactComponent.propTypes = {};
 
 ContactComponent.defaultProps = {};

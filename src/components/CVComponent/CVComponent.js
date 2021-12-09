@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './CVComponent.module.css';
 import CompanyCVComponent from './CompanyCVComponent/CompanyCVComponent';
+import {pageview} from '../../functions/analytics';
+import { useLocation } from 'react-router-dom';
 let prensaIberica = {
   'business':'Prensa Iberica',
   'date':'2020-03 - Now',
@@ -42,7 +44,10 @@ let LEDA = {
                    With the development of macros in <b> VBA </b> and <b> scheduled processes </b> of Python, most of the manual operations were done automatically.'],
   'website': 'https://www.leda-mc.com/en/'
 };
-const CVComponent = () => (
+const CVComponent = () => {
+  const location = useLocation();
+  React.useEffect(pageview(location.pathname));
+  return (
  
   <div className={styles.CVComponent}>
     <h1 className="nomato">Curriculum Vitae</h1>
@@ -72,7 +77,7 @@ const CVComponent = () => (
     </div>
 
   </div>
-);
+);}
 
 CVComponent.propTypes = {};
 

@@ -1,7 +1,8 @@
 import React from 'react';
 import ProjectBoxComponent from './ProjectBoxComponent/ProjectBoxComponent';
 import styles from './ProjectsComponent.module.css';
-
+import {pageview} from '../../functions/analytics';
+import { useLocation } from 'react-router-dom';
 let tweetToLlamaBot={
   'title': "TweetToLlamaBot",
   'description':'Twitter Bot that llamifies any tweet that mentions him.',
@@ -39,7 +40,9 @@ let TinderInstagramMining={
   This script gathered that information from instagram to a nice infographic",
   'href':'https://raw.githubusercontent.com/zamar-roura/Tinder_Instagram_Mining/master/Infografia.png'
 }
-const ProjectsComponent = () => (
+const ProjectsComponent = () => {
+  const location = useLocation();
+  React.useEffect(pageview(location.pathname));(
   <div className={styles.ProjectsComponent}>
     <h1 className="nomato">Current Online Projects</h1>
     <div className={styles.grid}>
@@ -63,7 +66,7 @@ const ProjectsComponent = () => (
   </div>
 
 
-);
+);}
 
 ProjectsComponent.propTypes = {};
 
