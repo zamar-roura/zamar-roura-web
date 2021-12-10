@@ -90,6 +90,7 @@ a:hover{
 
 .responsive-margin{
   margin-left: 40px;
+  width:100%;
 }
 /* RESETS */
 @media screen and (max-width: 600px) {
