@@ -9,13 +9,6 @@ const FirstPartySetComponent = () => {
   React.useEffect(pageview(location.pathname));
   return (
   <div className={styles.FirstPartySetComponent}>
-        How to use:
-    <ol>
-      <li>Run Chrome with the command-line flag
-        <pre>--use-first-party-set=https://fps-member1.glitch.me,https://fps-member2.glitch.me,https://fps-member3.glitch.me</pre></li>
-      <li>Click below to set cookies, then come back here.</li>
-      <li>Observe that SameParty cookies respect First-Party Set boundaries.</li>
-    </ol>
     <a href="/setcookies">Click here to set cookies.</a>
 <h1>
 Member 1      </h1>

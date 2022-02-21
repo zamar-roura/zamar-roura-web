@@ -6,7 +6,6 @@ import { useLocation } from 'react-router-dom';
 const SetCookiesComponent = () => {
 
   useEffect(() => {
-      alert("hey");
       document.cookie="Secure-SameSite-Lax-SameParty=1; Secure; SameSite=Lax; SameParty";
     });
   const location = useLocation();
