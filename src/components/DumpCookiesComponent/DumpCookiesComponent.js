@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from "react";
 import styles from './DumpCookiesComponent.module.css';
 import {isMobile} from 'react-device-detect';
 import {pageview} from '../../functions/analytics';
