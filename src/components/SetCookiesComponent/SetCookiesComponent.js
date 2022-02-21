@@ -1,16 +1,17 @@
 import React from 'react';
 import styles from './SetCookiesComponent.module.css';
-import {isMobile} from 'react-device-detect';
 import {pageview} from '../../functions/analytics';
 import { useLocation } from 'react-router-dom';
+import React, { useEffect } from "react";
 
 const SetCookiesComponent = () => {
 
-  componentDidMount () {
-    alert("hey");
-    document.cookie="Secure-SameSite-Lax-SameParty=1; Secure; SameSite=Lax; SameParty";
-}
-
+  useEffect(() => {
+    return () => {
+      alert("hey");
+      document.cookie="Secure-SameSite-Lax-SameParty=1; Secure; SameSite=Lax; SameParty";
+    }
+  }, []);
   const location = useLocation();
   React.useEffect(pageview(location.pathname));
   return (
