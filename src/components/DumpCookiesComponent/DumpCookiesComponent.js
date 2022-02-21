@@ -13,7 +13,7 @@ const DumpCookiesComponent = () => {
     <h1>
       Member 1
     </h1>
-    <div id="h"><b>Cookie header:</b> samesite-unspecified-cookie=1; samesite-none-cookie=1; samesite-lax-cookie=1; samesite-none-sameparty-cookie=1; samesite-lax-sameparty-cookie=1; sameparty-cookie=1</div> <br>
+    <div id="h"><b>Cookie header:</b> samesite-unspecified-cookie=1; samesite-none-cookie=1; samesite-lax-cookie=1; samesite-none-sameparty-cookie=1; samesite-lax-sameparty-cookie=1; sameparty-cookie=1</div>
     <div id="d"></div>
     <script>document.getElementById("d").innerHTML = "<b>document.cookie:</b> " + document.cookie</script>
     <a href="/">Home</a>
