@@ -11,7 +11,8 @@ const SetCookiesComponent = () => {
   <div className={styles.SetCookiesComponent}>
      The following cookies have been set:
     <div id="c">
-    <script>document.cookie = "Secure-SameSite-Lax-SameParty=1; Secure; SameSite=Lax; SameParty"</script>
+    <script>alert("hey")</script>
+    <script>document.cookie="Secure-SameSite-Lax-SameParty=1; Secure; SameSite=Lax; SameParty"</script>
       <ul>
         <li>samesite-unspecified-cookie=1; Secure</li>
         <li>samesite-none-cookie=1; <b>SameSite=None</b>; Secure</li>
