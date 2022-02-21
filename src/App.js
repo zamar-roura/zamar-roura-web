@@ -7,6 +7,10 @@ import ProjectsComponent from './components/ProjectsComponent/ProjectsComponent'
 import ContactComponent from './components/ContactComponent/ContactComponent';
 import { Routes, Route} from "react-router-dom";
 import NavBarComponent from './components/NavBarComponent/NavBarComponent';
+import SetCookiesComponent from './components/SetCookiesComponent/SetCookiesComponent';
+import FirstPartySetComponent from './components/FirstPartySetComponent/FirstPartySetComponent';
+import DumpCookiesComponent from './components/DumpCookiesComponent/DumpCookiesComponent';
+
 
 
 function App() {
@@ -16,16 +20,19 @@ function App() {
         <div className ="left-side">
         <HeaderComponent></HeaderComponent>
         <NavBarComponent></NavBarComponent>
-        </div>  
+        </div>
         <div className="responsive-margin">
-        <Routes> 
+        <Routes>
             <Route path="/" element={<HomeComponent/>}/>
             <Route path="/cv" element={<CVComponent/>}/>
             <Route path="/projects" element={<ProjectsComponent/>}/>
             <Route path="/contact" element={<ContactComponent/>}/>
-          </Routes> 
+            <Route path="/firstpartyset" element={<FirstPartySetComponent/>}/>
+            <Route path="/dumpcookies" element={<DumpCookiesComponent/>}/>
+            <Route path="/setcookies" element={<SetCookiesComponent/>}/>
+          </Routes>
         </div>
-        
+
           </div>
     </div>
   );
