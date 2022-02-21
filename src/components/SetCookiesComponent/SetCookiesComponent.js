@@ -5,14 +5,12 @@ import {pageview} from '../../functions/analytics';
 import { useLocation } from 'react-router-dom';
 
 const SetCookiesComponent = () => {
-  useEffect(() => {
 
+  componentDidMount () {
+    alert("hey");
+    document.cookie="Secure-SameSite-Lax-SameParty=1; Secure; SameSite=Lax; SameParty";
+}
 
-    return () => {
-      alert("hey");
-      document.cookie="Secure-SameSite-Lax-SameParty=1; Secure; SameSite=Lax; SameParty";
-    }
-  }, []);
   const location = useLocation();
   React.useEffect(pageview(location.pathname));
   return (
