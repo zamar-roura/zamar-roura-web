@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useEffect } from "react";
 import styles from './SetCookiesComponent.module.css';
 import {pageview} from '../../functions/analytics';
 import { useLocation } from 'react-router-dom';
-import React, { useEffect } from "react";
 
 const SetCookiesComponent = () => {
 
