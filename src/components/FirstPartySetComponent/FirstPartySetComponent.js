@@ -17,7 +17,7 @@ Member 1      </h1>
     <div id="d"></div>
     <script>document.getElementById("d").innerHTML = "<b>document.cookie:</b> " + document.cookie</script>
     <iframe src="/dumpcookies" width="700" height="400"></iframe>
-    <iframe src="https://www.commondevs.com/first-party-sets" width="900" height="600"></iframe>
+    <iframe src="https://www.commondevs.com/firstpartysets" width="900" height="600"></iframe>
   </div>
 );}
 
