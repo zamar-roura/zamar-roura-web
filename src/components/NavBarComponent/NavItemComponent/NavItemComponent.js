@@ -1,11 +1,9 @@
 import React from 'react';
-import styles from './NavItemComponent.module.css';
 import { NavLink } from 'react-router-dom';
-
+import styles from './NavItemComponent.module.scss';
 const NavItemComponent = (props) => (
-    <NavLink className={styles.NavItemComponent +(props.name !=="HOME" ? ' ' + styles.BorderLeft:'')} to={props.to}>
-    <img src={props.src} width ="20px" alt={props.name + " icon"}></img>
-    <div>{props.name}</div>
+    <NavLink to={props.to} className={styles.NavItemComponent}>
+        <a href="#" className={[styles.btn, styles.btnstripe].join(" ")}>{props.name}</a>
     </NavLink>
 );
 

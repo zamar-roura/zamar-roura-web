@@ -1,12 +1,17 @@
 import React from 'react';
-
+import img from '../../img/img1.jpg'; // with import
 import styles from './HeaderComponent.module.css';
 
 const HeaderComponent = () => (
   <div className={styles.HeaderComponent}>
-    <div className={styles.title}>ZAMAR ROURA</div>
-    <div className={styles.subtitle +" secondary-color"}><p>What will my favourite hobby be this week</p></div>
-  </div>
+    <div className={styles.headerblock}> 
+      <h1>ZAMAR ROURA</h1>
+      <h2 className={styles.subtitle +" secondary-color"}>Software Developer</h2>
+    </div>
+  <div className={styles.imgframe}>
+    <img src= {img}></img>
+    </div>
+    </div>
 );
 
 HeaderComponent.propTypes = {};
