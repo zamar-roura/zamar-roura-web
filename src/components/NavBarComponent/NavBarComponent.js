@@ -5,8 +5,8 @@ import NavItemComponent from './NavItemComponent/NavItemComponent';
 const NavBarComponent = () => (
   <div className={styles.NavBarComponent}>
       <NavItemComponent to="" name="Projects"></NavItemComponent>
-      <NavItemComponent to="" name="Github"></NavItemComponent>
-      <NavItemComponent to="" name="Linkedin"></NavItemComponent>
+      <NavItemComponent to="https://github.com/zamar-roura" name="Github"></NavItemComponent>
+      <NavItemComponent to="https://www.linkedin.com/in/zamarelahi/" name="Linkedin"></NavItemComponent>
       <NavItemComponent to="" name="Mail"></NavItemComponent>
       
     </div>

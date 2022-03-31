@@ -18,5 +18,11 @@
 .container{
   margin:50px auto;
   max-width: 650px;
+  padding: 5px;
 }
 
+@media screen and (max-width: 600px) {
+  .container{
+    padding: 20px;
+  }
+  }
