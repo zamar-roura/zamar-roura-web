@@ -2,13 +2,12 @@ import React from 'react';
 import styles from './ProjectBoxComponent.module.css';
 
 const ProjectBoxComponent = (props) => (
-  <a href={props.project.href} target="_blank" rel="noreferrer">
-    <div className={styles.ProjectBoxComponent}>
+  <div className={styles.ProjectBoxComponent}>
+    <a href={props.project.href}>
       <h4 className="noma">{props.project.title}</h4>
-      <br></br>
-        <span >{props.project.description}</span>
-    </div>
-  </a>
+    </a>
+    <span >{props.project.description}</span>
+  </div>
 );
 
 ProjectBoxComponent.propTypes = {};

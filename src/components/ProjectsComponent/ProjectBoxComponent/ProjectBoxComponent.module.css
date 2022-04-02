@@ -1,5 +1,5 @@
 .ProjectBoxComponent {
-
+    max-width: 700px;
     border: 1px solid black;
     border-radius: 5px;
     padding: 5px 10px;

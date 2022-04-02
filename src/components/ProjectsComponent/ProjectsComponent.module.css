@@ -1,7 +1,8 @@
-.ProjectsComponent {}
+.ProjectsComponent {
 
+}
 
-.grid{
-    display: flex;
-    flex-wrap: wrap;
+.ProjectsComponent h1{
+    text-align: center;
+    margin:20px 0;
 }

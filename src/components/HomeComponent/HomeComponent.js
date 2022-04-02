@@ -1,11 +1,7 @@
 import React from 'react';
 import styles from './HomeComponent.module.css';
-import {pageview} from '../../functions/analytics';
-import { useLocation } from 'react-router-dom';
 
 const HomeComponent = () => {
-  const location = useLocation();
-  React.useEffect(pageview(location.pathname));
   return (
   <div className={styles.HomeComponent}>
       Hello There! 

@@ -1,8 +1,8 @@
 import React from 'react';
 import ProjectBoxComponent from './ProjectBoxComponent/ProjectBoxComponent';
 import styles from './ProjectsComponent.module.css';
-import {pageview} from '../../functions/analytics';
 import { useLocation } from 'react-router-dom';
+
 let tweetToLlamaBot={
   'title': "TweetToLlamaBot",
   'description':'Twitter Bot that llamifies any tweet that mentions him.',
@@ -42,27 +42,20 @@ let TinderInstagramMining={
 }
 const ProjectsComponent = () => {
   const location = useLocation();
-  React.useEffect(pageview(location.pathname));
   
   return(
   <div className={styles.ProjectsComponent}>
     <h1 className="nomato">Current Online Projects</h1>
-    <div className={styles.grid}>
-      <ProjectBoxComponent project={tweetToLlamaBot}></ProjectBoxComponent>
-      <ProjectBoxComponent project={threeTopThree}></ProjectBoxComponent>
-      <ProjectBoxComponent project={quicklyPressTheButton}></ProjectBoxComponent>
-    </div>
+    <ProjectBoxComponent project={tweetToLlamaBot}></ProjectBoxComponent>
+    <ProjectBoxComponent project={threeTopThree}></ProjectBoxComponent>
+    <ProjectBoxComponent project={quicklyPressTheButton}></ProjectBoxComponent>
 
 
     <h1>Mobile App Development</h1>
-    <div className={styles.grid}>
       <ProjectBoxComponent project={commonDevs}></ProjectBoxComponent>
-    </div>
 
     <h1>App experimentation</h1>
-    <div className={styles.grid}>
       <ProjectBoxComponent project={TinderAdventures}></ProjectBoxComponent>
-    </div>
     <h1>Interesting concepts</h1>
     <ProjectBoxComponent project={TinderInstagramMining}></ProjectBoxComponent>
   </div>
