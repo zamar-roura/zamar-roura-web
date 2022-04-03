@@ -11,7 +11,7 @@ import { useLocation } from 'react-router-dom';
 
 function Back() {
   const location = useLocation();
-  if (location.pathname != "/") {
+  if (location.pathname !== "/") {
     return <GoBackComponent/>
   }
   return <div></div>

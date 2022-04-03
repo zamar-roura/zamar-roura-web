@@ -9,7 +9,7 @@ const HeaderComponent = () => (
       <h2 className={styles.subtitle +" secondary-color"}>Software Developer</h2>
     </div>
   <div className={styles.imgframe}>
-    <img src= {img}></img>
+    <img src= {img} alt="Zamar"></img>
     </div>
     </div>
 );

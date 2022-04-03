@@ -1,7 +1,6 @@
 import React from 'react';
 import ProjectBoxComponent from './ProjectBoxComponent/ProjectBoxComponent';
 import styles from './ProjectsComponent.module.css';
-import { useLocation } from 'react-router-dom';
 
 let tweetToLlamaBot={
   'title': "TweetToLlamaBot",
@@ -35,14 +34,10 @@ let TinderAdventures={
 
 let TinderInstagramMining={
   'title': "TinderInstagramMining",
-  'description':"One of the first data mining projects I did after uni. \
-  People in my university posted in Instagram where they saw their crush in hopes of getting their instagram. \
-  This script gathered that information from instagram to a nice infographic",
+  'description':"One of the first data mining projects I did after university.People in my university posted in Instagram where they saw their crush in hopes of getting their instagram.This script gathered that information from instagram to a nice infographic",
   'href':'https://raw.githubusercontent.com/zamar-roura/Tinder_Instagram_Mining/master/Infografia.png'
 }
-const ProjectsComponent = () => {
-  const location = useLocation();
-  
+const ProjectsComponent = () => {  
   return(
   <div className={styles.ProjectsComponent}>
     <h1 className="nomato">Current Online Projects</h1>
