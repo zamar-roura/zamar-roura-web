@@ -1,0 +1,40 @@
+.NameComponent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.headerblock{
+  margin-right:100px;
+}
+.NameComponent  h1 {
+margin: 0px;
+ 
+}
+.NameComponent h2{
+  font-weight: 300;
+  margin: 0 0 0.5em 0;
+}
+.imgframe {
+  position: relative;
+  width: 280px;
+  height: 300px;
+  margin: 0 0 10px 0;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.imgframe Image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  height: 100%;
+}
+  
+@media screen and (max-width: 600px) {
+  .headerblock{
+    text-align: center;
+    margin-right:0px;
+  }
+  }

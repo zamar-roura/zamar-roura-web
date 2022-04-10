@@ -9,7 +9,7 @@ const HomeComponent = () => (
   <div className='container'>
       <NameComponent></NameComponent>
       <NavBarComponent></NavBarComponent>
-      <BodyComponent/>
+      <ProjectsComponent/>
   </div>
 );
 

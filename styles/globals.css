@@ -1,16 +1,66 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+/* COLORS */
+.primary-color{
+  color: var(--primary-color);
+}
+.secondary-color{
+  color: var(--secondary-color);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.third-color{
+  color: var(--third-color);
 }
 
-* {
-  box-sizing: border-box;
+.forth-color{
+  color: var(--forth-color);
 }
+
+.container{
+  margin:50px auto;
+  max-width: 650px;
+  padding: 5px;
+}
+
+@media screen and (max-width: 600px) {
+  .container{
+    padding: 20px;
+  }
+  }
+  
+  :root{
+    --background: #ffffff;
+    --background-darker: #fd9620;
+    --primary-color: #3A3335;
+    --secondary-color:#a3a3a3;
+    --third-color: #D81E5B;
+    --forth-color: #7C898B;
+    --fontSize: calc(20px + 2vmin);
+  
+    --header-height: 40px;
+  }
+  body::-webkit-scrollbar{
+    width: 0.25rem;
+  }
+  
+  body::-webkit-scrollbar-track{
+    background: var(--primary-color);
+  }
+  
+  body::-webkit-scrollbar-thumb{
+    background: var(--third-color);
+  }
+  body {
+    margin: 0;
+    font-family: 'Red Hat Mono', 'Roboto Mono','Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+  
+  }
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+  
