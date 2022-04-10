@@ -3,7 +3,7 @@ import Head from 'next/head';
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <Head>
+      {/* <Head>
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Zamar Roura" />
         <meta
@@ -29,7 +29,7 @@ function MyApp({ Component, pageProps }) {
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1"
-        />
+        /> */}
       </Head>
       <Component {...pageProps} />
     </>)
