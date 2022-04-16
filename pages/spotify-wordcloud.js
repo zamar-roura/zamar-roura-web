@@ -1,39 +1,52 @@
 import React, { useState,useEffect} from "react";
+import InfoComponent from "../components/InfoComponent/InfoComponent";
+// import InfoComponent from "../components/InfoComponent/InfoComponent";
 import SearchBar from '../components/SearchBar/SearchBarComponent'
 
 
 
 
-async function fetchPlaylist(playlistID) {
+async function fetchPlaylist(playlistID,setModalOptions) {
     try{
-        // const response = await fetch("http://spotify-wordcloud.ddns.net:3000/playlist/" + playlistID);
-        // const myWords = await response.json();
-        // const arr = []
-        // for (var key in myWords){
-        //     console.log(myWords[key].word)
-        //     arr.push([myWords[key].word,myWords[key].size])
-        // }
-        const arr = [['aaaa',20],['bbbb',50],['ccc',10],['HOLA',60]]
+        document.getElementById("loading").style.display = "flex";
+        const response = await fetch("http://spotify-wordcloud.ddns.net:3000/playlist/" + playlistID);
+        const myWords = await response.json();
+        const arr = []
+        for (var key in myWords){
+            arr.push([myWords[key].word,myWords[key].size])
+        }
+        // const arr = [['aaaa',20],['bbbb',50],['ccc',10],['HOLA',60],['aadsaa',20],['bbsddsbb',50],['ccfdsfsdc',10],['HOLsdfsdA',60],['aaasda',20],['bbsfdbb',50],['cccsdf',10],['HOsdfLA',60],['aasdaa',20],['bsdfbbb',50],['csdfcc',10],['HOfsdfsdLA',60]]
         const WordCloud =(await import('wordcloud')).default
         const colorFunction = function (word, weight) {
             return (weight > 50) ? '#1DB954' : 'black';
           };
-        WordCloud(document.getElementById('my_dataviz'), { list: arr,color:colorFunction } );
+        const hoverFunction = function(item,dimension,event){
+            if (item){
+                setModalOptions({x:event['pageX'],y:event['pageY'],word:item[0],frequency:item[1]})
+            }
+            else {
+                setModalOptions({})
+            }
+        }
+
+        WordCloud(document.getElementById('my_dataviz'), { list: arr,color:colorFunction,hover:hoverFunction } );
     }
     catch(error){
         alert("Sorry we were unable to obtain the wordcloud for this playlist");
         console.log(error)
-        // document.getElementById("loading").style.display = "none";
+        document.getElementById("loading").style.display = "none";
     }
  
 }
+
 const SpotifyWordCloud = () => {
     const [playlist, setPlaylist] = useState('');
     const [token, setToken] = useState('');
+    const [modalOptions, setModalOptions] = useState({});
     useEffect(() => {
-        console.log(playlist);
         if (playlist){
-            fetchPlaylist(playlist);
+            document.getElementById("my_dataviz").innerHTML = "";
+            fetchPlaylist(playlist,setModalOptions);
         }
     },[playlist]) // <-- here put the parameter to listen
 
@@ -43,7 +56,6 @@ const SpotifyWordCloud = () => {
             if (!token) {
                 const res = await fetch(`http://spotify-wordcloud.ddns.net:3000/anonymous-token`)
                 const data = await res.json()
-                console.log(token);
                 setToken(data['accessToken'])
             }
         })()
@@ -53,8 +65,10 @@ const SpotifyWordCloud = () => {
 
         <div className='container'>
             <h2>Find the most frequent words in the playlist lyrics</h2> 
-            <SearchBar setPlaylist={setPlaylist} placeholder="Search for a playlist or introduce playlist ID" token = {token} playlist={playlist}/>
+            <SearchBar setPlaylist={setPlaylist} token = {token} playlist={playlist}/>
+            <div id ="loading" className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
             <div id="my_dataviz"></div>
+            {Object.keys(modalOptions).length > 0 && <InfoComponent modalOptions={modalOptions}></InfoComponent>}
         </div>
 
         <style jsx>{`
@@ -65,13 +79,13 @@ const SpotifyWordCloud = () => {
             margin:50px auto;
             max-width: 1050px;
             padding: 5px;
-            
         }
 
   
         #my_dataviz {
             width:100%;
             height: 900px;
+           
         }
         .lds-roller {
             display: none;
@@ -79,6 +93,7 @@ const SpotifyWordCloud = () => {
             justify-content:center;
             justify-items:center;
             position:relative;
+            margin-top: 100px;
         }
         .lds-roller div {
             animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
@@ -91,7 +106,7 @@ const SpotifyWordCloud = () => {
             width: 7px;
             height: 7px;
             border-radius: 50%;
-            background: #42f598;
+            background: white;
             margin: -4px 0 0 -4px;
         }
         .lds-roller div:nth-child(1) {

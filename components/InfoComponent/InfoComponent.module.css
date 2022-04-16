@@ -1,0 +1,10 @@
+.infoComponent{
+  display:flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  position:relative;
+  background-color: rgba(205, 241, 217, 0.981);
+  height: 50px;
+  width: 200px;
+}
