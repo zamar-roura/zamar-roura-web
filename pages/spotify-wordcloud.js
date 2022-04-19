@@ -9,7 +9,7 @@ import SearchBar from '../components/SearchBar/SearchBarComponent'
 async function fetchPlaylist(playlistID,setModalOptions) {
     try{
         document.getElementById("loading").style.display = "flex";
-        const response = await fetch("http://spotify-wordcloud.ddns.net:3000/playlist/" + playlistID);
+        const response = await fetch("https://zamar-projects.ddns.net/playlist/" + playlistID);
         const myWords = await response.json();
         const arr = []
         for (var key in myWords){
@@ -54,7 +54,7 @@ const SpotifyWordCloud = () => {
         document.body.style.backgroundColor = "#1DB954";
         (async ()=>{
             if (!token) {
-                const res = await fetch(`http://spotify-wordcloud.ddns.net:3000/anonymous-token`)
+                const res = await fetch(`https://zamar-projects.ddns.net/anonymous-token`)
                 const data = await res.json()
                 setToken(data['accessToken'])
             }
