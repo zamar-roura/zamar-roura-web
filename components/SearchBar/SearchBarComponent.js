@@ -16,7 +16,8 @@ async function searchPlaylist(query,token){
         return data['playlists']['items'];     
     }
        // If there is no data we try to search the id
-    const deepSearch = await fetch("https://api.spotify.com/v1/playlists/"+query, {
+    const cleaned_url = query.substring(query.lastIndexOf('/') + 1)
+    const deepSearch = await fetch("https://api.spotify.com/v1/playlists/"+cleaned_url, {
             headers: {
             Authorization: "Bearer "+token,
             "Content-Type": "application/json"
@@ -33,13 +34,14 @@ function SearchBar({token,setPlaylist}) {
     const [filteredData, setFilteredData] = useState([]);
     const [wordEntered, setWordEntered] = useState("");
     const [data, setData] = useState("");
-    const [placeholder,setPlaceholder] = useState("Search for a playlist or introduce playlist ID")
+    const [placeholder,setPlaceholder] = useState("Search for a playlist or introduce playlist ID (with less than 150 songs)")
     const handleFilter = async (event) => {
         const searchWord = event.target.value;
         setWordEntered(searchWord);
     
         if (searchWord.length > 3){
-        const data = await searchPlaylist(searchWord,token);
+        var  data = await searchPlaylist(searchWord,token);
+        data = data.filter((x) => x['tracks']['total'] < 150);
         setData(data);
         setFilteredData(data);
         }
