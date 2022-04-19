@@ -11,11 +11,6 @@ async function fetchPlaylist(playlistID,setModalOptions) {
         document.getElementById("loading").style.display = "flex";
         const response = await fetch("https://zamar-projects.ddns.net/playlist/" + playlistID);
         const myWords = await response.json();
-        const arr = []
-        for (var key in myWords){
-            arr.push([myWords[key].word,myWords[key].size])
-        }
-        // const arr = [['aaaa',20],['bbbb',50],['ccc',10],['HOLA',60],['aadsaa',20],['bbsddsbb',50],['ccfdsfsdc',10],['HOLsdfsdA',60],['aaasda',20],['bbsfdbb',50],['cccsdf',10],['HOsdfLA',60],['aasdaa',20],['bsdfbbb',50],['csdfcc',10],['HOfsdfsdLA',60]]
         const WordCloud =(await import('wordcloud')).default
         const colorFunction = function (word, weight) {
             return (weight > 50) ? '#1DB954' : 'black';
@@ -29,7 +24,7 @@ async function fetchPlaylist(playlistID,setModalOptions) {
             }
         }
 
-        WordCloud(document.getElementById('my_dataviz'), { list: arr,color:colorFunction,hover:hoverFunction } );
+        WordCloud(document.getElementById('my_dataviz'), { list: myWords,color:colorFunction,hover:hoverFunction } );
     }
     catch(error){
         alert("Sorry we were unable to obtain the wordcloud for this playlist");
