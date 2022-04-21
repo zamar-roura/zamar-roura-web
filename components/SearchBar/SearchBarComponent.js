@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styles from "./SearchBarComponent.module.css";
-import Image from 'next/image'
 
 // import SearchIcon from "@material-ui/icons/Search";
 // import CloseIcon from "@material-ui/icons/Close";
@@ -75,7 +74,7 @@ function SearchBar({token,setPlaylist}) {
             {filteredData.slice(0, 15).map((value, key) => {
               return (
                   <div key={value.uri.split(":")[2]} data-value={value.uri.split(":")[2]} data-title={value.name}  onClick={clearInput} className={styles.dataItem}>
-                      <img data-value={value.uri.split(":")[2]} data-title={value.name} src={value.images[0].url} height="80px" width="80px"></img> 
+                      <img data-value={value.uri.split(":")[2]} data-title={value.name} src={value.images[0] ? value.images[0].url : ""} height="80px" width="80px"></img> 
                       <div data-value={value.uri.split(":")[2]} data-title={value.name} className={styles.textItem}>{value.name}</div>
                  </div>
               )
