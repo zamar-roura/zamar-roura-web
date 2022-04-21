@@ -2,6 +2,12 @@ import React from 'react';
 import ProjectBoxComponent from './ProjectBoxComponent/ProjectBoxComponent';
 import styles from './ProjectsComponent.module.css';
 
+let spotifyWordCloud={
+  'title': "Spotify Word-Cloud",
+  'description':'Get the most frequent words in the lyrics of any playlist',
+  'href':'https://zamar-roura.com/spotify-wordcloud'
+}
+
 let tweetToLlamaBot={
   'title': "TweetToLlamaBot",
   'description':'Twitter Bot that llamifies any tweet that mentions him.',
@@ -41,14 +47,16 @@ const ProjectsComponent = () => {
   return(
   <div className={styles.ProjectsComponent}>
     <h1 className="nomato">Current Online Projects</h1>
+    <ProjectBoxComponent project={spotifyWordCloud}></ProjectBoxComponent>
     <ProjectBoxComponent project={tweetToLlamaBot}></ProjectBoxComponent>
     <ProjectBoxComponent project={threeTopThree}></ProjectBoxComponent>
-    <ProjectBoxComponent project={quicklyPressTheButton}></ProjectBoxComponent>
+    
 
 
     <h1>Mobile App Development</h1>
       <ProjectBoxComponent project={commonDevs}></ProjectBoxComponent>
-
+      <ProjectBoxComponent project={quicklyPressTheButton}></ProjectBoxComponent>
+      
     <h1>App experimentation</h1>
       <ProjectBoxComponent project={TinderAdventures}></ProjectBoxComponent>
     <h1>Interesting concepts</h1>
