@@ -1,6 +1,5 @@
 import '../styles/globals.css'
 import Head from 'next/head';
-import Script from 'next/Script';
 function MyApp({ Component, pageProps }) {
   return (
     <>
@@ -9,7 +8,7 @@ function MyApp({ Component, pageProps }) {
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      
+
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z2BVY8Y6H2" />
 
        <script
