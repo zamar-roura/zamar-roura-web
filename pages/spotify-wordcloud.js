@@ -2,7 +2,7 @@ import React, { useState,useEffect} from "react";
 import InfoComponent from "../components/InfoComponent/InfoComponent";
 // import InfoComponent from "../components/InfoComponent/InfoComponent";
 import SearchBar from '../components/SearchBar/SearchBarComponent'
-
+import Head from 'next/head'
 
 
 
@@ -57,7 +57,29 @@ const SpotifyWordCloud = () => {
     },[]) 
 
     return (<>
+    <Head>
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:title" content="Spotify WordCloud by Zamar" />
+      <meta
+        name="twitter:description"
+        content="Get the most frequent words of any spotify playlist!"
+      />
+      <meta name="twitter:creator" content="@ZamaRroura" />
+      <meta
+        name="twitter:image"
+        content="https://twitter.com/ZamarRoura/photo"
+      />
+      <meta property="og:title" content="Spotify Worcloud by Zamar" />
+      <meta property="og:url" content="https://zamar-roura.com/spotify-wordcloud" />
+      <meta property="og:image" content="https://twitter.com/ZamarRoura/photo" />
+      <meta
+        property="og:description"
+        content="Get the most frequent words of any spotify playlist!"
+      />
+      <meta property="og:site_name" content="Zamar Roura" />
 
+      <meta name="theme-color" content="#ffffff" />
+    </Head>
         <div className='container'>
             <h2>Find the most frequent words in the playlist lyrics</h2> 
             <SearchBar setPlaylist={setPlaylist} token = {token} playlist={playlist}/>
