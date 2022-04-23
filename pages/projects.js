@@ -1,6 +1,8 @@
 import React from 'react';
-import ShareComponent from '../components/ShareComponent/ShareComponent'
-
+import NameComponent from '../components/NameComponent/NameComponent';
+import NavBarComponent from '../components/NavBarComponent/NavBarComponent';
+import ProjectsComponent from '../components/ProjectsComponent/ProjectsComponent';
+import Head from 'next/head'
 
 const HomeComponent = () => (
   <div>
