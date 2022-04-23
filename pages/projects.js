@@ -1,12 +1,9 @@
 import React from 'react';
-import NameComponent from '../components/NameComponent/NameComponent';
-import NavBarComponent from '../components/NavBarComponent/NavBarComponent';
-import ProjectsComponent from '../components/ProjectsComponent/ProjectsComponent';
-import Head from 'next/head'
+import ShareComponent from '../components/ShareComponent/ShareComponent'
+
 
 const HomeComponent = () => (
   <div>
-     <Head>
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:title" content="Zamar Roura Projects" />
       <meta
