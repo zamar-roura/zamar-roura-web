@@ -4,6 +4,7 @@ import ShareComponent from '../components/ShareComponent/ShareComponent'
 
 const HomeComponent = () => (
   <div>
+     <Head>
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:title" content="Zamar Roura Projects" />
       <meta
