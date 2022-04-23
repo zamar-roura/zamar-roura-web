@@ -3,69 +3,38 @@ import styles from "./SearchBarComponent.module.css";
 
 // import SearchIcon from "@material-ui/icons/Search";
 // import CloseIcon from "@material-ui/icons/Close";
-async function searchPlaylist(query,token){
-    const res = await fetch("https://api.spotify.com/v1/search?type=playlist&q="+query, {
-                headers: {
-                Authorization: "Bearer "+token,
-                "Content-Type": "application/json"
-                     }
-                })
-    const data = await res.json()
-    if(data && !data.error && data.playlists && data.playlists.items.length > 0 ){
-        return data['playlists']['items'];     
-    }
-       // If there is no data we try to search the id
-    const cleaned_url = query.substring(query.lastIndexOf('/') + 1)
-    const deepSearch = await fetch("https://api.spotify.com/v1/playlists/"+cleaned_url, {
-            headers: {
-            Authorization: "Bearer "+token,
-            "Content-Type": "application/json"
-                 }
-            })
-    const deepData = await deepSearch.json()
-   
-    if(deepData && !deepData.error){
-        return [deepData];     
-    }
-    return []
-}
-function SearchBar({token,setPlaylist}) {
+
+function SearchBar({searchFunction, clearInputHandler, placeholder,readOnly=false}) {
     const [filteredData, setFilteredData] = useState([]);
     const [wordEntered, setWordEntered] = useState("");
-    const [data, setData] = useState("");
-    const [placeholder,setPlaceholder] = useState("Search for a playlist or introduce playlist ID (with less than 150 songs)")
+
     const handleFilter = async (event) => {
-        const searchWord = event.target.value;
-        setWordEntered(searchWord);
-    
-        if (searchWord.length > 3){
-        var  data = await searchPlaylist(searchWord,token);
-        data = data.filter((x) => x['tracks']['total'] < 150);
-        setData(data);
-        setFilteredData(data);
-        }
-    if (searchWord === "") {
-        setFilteredData([]);
-        }
-    };
-  
+      const searchWord = event.target.value;
+      setWordEntered(searchWord);
+      if (searchWord.length > 3){
+      var  data = await searchFunction(searchWord);
+      setFilteredData(data);
+      }
+  if (searchWord === "") {
+      setFilteredData([]);
+      }
+  };
     const clearInput = (event) => {
-        setPlaylist(event.target.getAttribute("data-value"))
-        setPlaceholder(event.target.getAttribute("data-title"))
+        clearInputHandler(event);
         setFilteredData([]);
         setWordEntered("");
     };
     return (
       <div className={styles.search}>
         <div className={styles.searchInputs}>
-          {token ? <input
+          {!readOnly ? <input
             type="text"
             placeholder={placeholder}
             value={wordEntered}
             onChange={handleFilter}
           /> : <input
           type="text"
-          placeholder="Gathering playlists from spotify, wait a second ..."
+          placeholder={"Gathering playlists from spotify, wait a second ..."}
           readOnly={true} />}
           
         </div>

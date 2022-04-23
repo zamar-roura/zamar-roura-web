@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import styles from "./ShareComponent.module.css";
-
-function ShareComponent({ label, url, text, title }) {
+import Button from '@mui/material/Button';
+import Image from 'next/image'
+import SVG from './share.svg'
+import { style } from "@mui/system";
+function ShareComponent({url, text, title }) {
   const shareDetails = {url, title, text};
 
   const handleSharing = async () => {
     if (navigator.share) {
       try {
         await navigator
-          .share({ title: "Example Page", url: "" })
-          .then(() =>
-            console.log("Hooray! Your content was shared to tha world")
-          );
+          .share(shareDetails)
       } catch (error) {
         console.log(`Oops! I couldn't share to the world because: ${error}`);
       }
@@ -22,10 +22,9 @@ function ShareComponent({ label, url, text, title }) {
       );
     }
   };
-  return (
-    <button className="sharer-button" onClick={handleSharing}>
-      <span className="sharer-button-text">{label}</span>
-    </button>
+  return (<>
+    <Button variant="contained" onClick={handleSharing} color="inherit">Share <img className={styles.icon} src="./share.svg" width="20px" height = "20px"></img></Button>
+    </>
   );
 }
 
