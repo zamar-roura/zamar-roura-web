@@ -155,7 +155,7 @@ const SpotifyWordCloud = () => {
             <h2>Find the most frequent words in the playlist lyrics</h2> 
             {error && <h4>{error}</h4>}
             <SearchBar playlist={playlist} searchFunction={handleFilter} clearInputHandler={clearInputHandler} placeholder={placeholder} readOnly={readOnly}/>
-            {finished && <div id ="share"><ShareComponent  url={"https://"+ document.location.hostname +  "/spotify-wordcloud?playlist="+playlist+"&title=" + encodeURIComponent(placeholder)} text={"These are the most used words in the '" + placeholder + "' playlist of Spotify!"} title="Spotify Wordcloud"></ShareComponent></div>}
+            {finished && <div id ="share"><ShareComponent  url={"https://"+ document.location.hostname +  "?playlist="+playlist+"&title=" + encodeURIComponent(placeholder)} text={"These are the most used words in the '" + placeholder + "' playlist of Spotify!"} title="Spotify Wordcloud"></ShareComponent></div>}
                 <div id ="loading" className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                 <div id="my_dataviz"></div>
             {Object.keys(modalOptions).length > 0 && <InfoComponent modalOptions={modalOptions}></InfoComponent>}
