@@ -11,6 +11,7 @@ import Head from 'next/head'
 
 const SpotifyWordCloud = () => {
     const [playlist, setPlaylist] = useState('');
+    const [frequentWord, setFrequentWord] = useState({});
     const [placeholder,setPlaceholder] = useState("Search for a playlist or introduce playlist ID (with less than 150 songs)")
     const [readOnly,setReadOnly] = useState(true)
     const [token, setToken] = useState('');
@@ -72,6 +73,9 @@ const SpotifyWordCloud = () => {
             document.getElementById("loading").style.display = "flex";
             const response = await fetch("https://zamar-projects.ddns.net/playlist/" + playlistID);
             const myWords = await response.json();
+
+            //Save the data for later use
+            setFrequentWord({"word":myWords[0][0],"times":myWords[0][1]})
             const WordCloud =(await import('wordcloud')).default
             const colorFunction = function (word, weight) {
                 return (weight > 50) ? '#1DB954' : 'black';
@@ -155,7 +159,7 @@ const SpotifyWordCloud = () => {
             <h2>Find the most frequent words in the playlist lyrics</h2> 
             {error && <h4>{error}</h4>}
             <SearchBar playlist={playlist} searchFunction={handleFilter} clearInputHandler={clearInputHandler} placeholder={placeholder} readOnly={readOnly}/>
-            {finished && <div id ="share"><ShareComponent  url={"https://"+ document.location.hostname +  "?playlist="+playlist+"&title=" + encodeURIComponent(placeholder)} text={"These are the most used words in the '" + placeholder + "' playlist of Spotify!"} title="Spotify Wordcloud"></ShareComponent></div>}
+            {finished && <div id ="share"><ShareComponent  url={"https://"+ document.location.hostname +  "?playlist="+playlist+"&title=" + encodeURIComponent(placeholder)} text={" The word'" + frequentWord.word + "' appears " + frequentWord.times +" times in '" + placeholder + "' playlist of Spotify. Click to know more!"} title="Spotify Wordcloud"></ShareComponent></div>}
                 <div id ="loading" className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                 <div id="my_dataviz"></div>
             {Object.keys(modalOptions).length > 0 && <InfoComponent modalOptions={modalOptions}></InfoComponent>}
