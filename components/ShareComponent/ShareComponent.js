@@ -23,7 +23,7 @@ function ShareComponent({url, text, title }) {
     }
   };
   return (<>
-    <Button variant="contained" onClick={handleSharing} color="inherit">Share <img className={styles.icon} src="./share.svg" width="20px" height = "20px"></img></Button>
+    <Button id="share-button" variant="contained" onClick={handleSharing} color="inherit">Share <img className={styles.icon} src="./share.svg" width="20px" height = "20px"></img></Button>
     </>
   );
 }
