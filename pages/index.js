@@ -146,7 +146,7 @@ const SpotifyWordCloud = () => {
       />
       <meta property="og:title" content="Spotify Worcloud by Zamar" />
       <meta property="og:url" content="https://spotifycloud.zamar-roura.com" />
-      <meta property="og:image" content="https://spotifycloud.zamar-roura.com/images/thumbnail.png" />
+      <meta property="og:image" content="https://spotifycloud.zamar-roura.com/images/thumbnail.jpg" />
       <meta
         property="og:description"
         content="Get the most frequent words of any spotify playlist!"
