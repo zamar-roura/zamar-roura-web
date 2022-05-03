@@ -71,9 +71,9 @@ const SpotifyWordCloud = () => {
             setFinished(false)
             document.getElementById('my_dataviz').style.display = "none"
             document.getElementById("loading").style.display = "flex";
+            document.getElementById("loading-text").style.display = "block";
             const response = await fetch("https://zamar-projects.ddns.net/playlist/" + playlistID);
             const myWords = await response.json();
-
             //Save the data for later use
             setFrequentWord({"word":myWords[0][0],"times":myWords[0][1]})
             const WordCloud =(await import('wordcloud')).default
@@ -88,16 +88,19 @@ const SpotifyWordCloud = () => {
                     setModalOptions({})
                 }
             }
-            document.getElementById("loading").style.display = "flex";
+            document.getElementById("loading").style.display = "block";
             document.getElementById('my_dataviz').style.display = "block"
-            WordCloud(document.getElementById('my_dataviz'), { list: myWords,color:colorFunction,hover:hoverFunction } );
+            console.log(myWords);
+            WordCloud(document.getElementById('my_dataviz'), { list: myWords,color:colorFunction,hover:hoverFunction,shrinkToFit:true } );
             document.getElementById("loading").style.display = "none";
+            document.getElementById("loading-text").style.display = "none";
 
             setFinished(true)
         }
         catch(error){
             setError("Couldn't find playlist,try another one.")
             document.getElementById("loading").style.display = "none";
+            document.getElementById("loading-text").style.display = "none";
         }
      
     }
@@ -162,12 +165,19 @@ const SpotifyWordCloud = () => {
             <SearchBar playlist={playlist} searchFunction={handleFilter} clearInputHandler={clearInputHandler} placeholder={placeholder} readOnly={readOnly}/>
             {finished && <div id ="share"><ShareComponent  url={"https://"+ document.location.hostname +  "?playlist="+playlist+"&title=" + encodeURIComponent(placeholder)} text={" The word '" + frequentWord.word + "' appears " + frequentWord.times +" times in '" + placeholder + "' playlist of Spotify. Click to know more!"} title="Spotify Wordcloud"></ShareComponent></div>}
                 <div id ="loading" className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                <div id ="loading-text" > I'm running on a 1GB RAM server, be patient :)</div>
                 <div id="my_dataviz"></div>
             {Object.keys(modalOptions).length > 0 && <InfoComponent modalOptions={modalOptions}></InfoComponent>}
         </div>
 
         <style jsx>{`
         
+        #loading-text{
+            text-align:center;
+            color:white;
+            margin-top: 100px;
+            display:none;
+        }
         #share {
             display:flex !important;
             justify-content:center;
@@ -201,8 +211,8 @@ const SpotifyWordCloud = () => {
             display: none;
             align-items:center;
             justify-content:center;
-            justify-items:center;
-            position:relative;
+             left: -35px;
+             position:relative;
         }
         .lds-roller div {
             animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
