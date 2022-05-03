@@ -10,6 +10,11 @@ function ShareComponent({url, text, title }) {
   const handleSharing = async () => {
     if (navigator.share) {
       try {
+        window.dataLayer.push({
+          event:"share-event",
+          url:url,
+          title:title
+        });
         await navigator
           .share(shareDetails)
       } catch (error) {
