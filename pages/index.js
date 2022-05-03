@@ -21,7 +21,7 @@ const SpotifyWordCloud = () => {
     const router = useRouter();
 
     const getPlaylist = async (playlistId) => {
-        const cleaned_url = playlistId.substring(query.lastIndexOf('/') + 1)
+        const cleaned_url = playlistId.substring(playlistId.lastIndexOf('/') + 1)
         const deepSearch = await fetch("https://api.spotify.com/v1/playlists/"+cleaned_url, {
                 headers: {
                 Authorization: "Bearer "+token,
