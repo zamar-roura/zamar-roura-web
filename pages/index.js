@@ -157,6 +157,7 @@ const SpotifyWordCloud = () => {
     </Head>
         <div className='container'>
             <h2>Find the most frequent words in the playlist lyrics</h2> 
+            <h6>*It must be public and with less than 150 songs.</h6> 
             {error && <h4>{error}</h4>}
             <SearchBar playlist={playlist} searchFunction={handleFilter} clearInputHandler={clearInputHandler} placeholder={placeholder} readOnly={readOnly}/>
             {finished && <div id ="share"><ShareComponent  url={"https://"+ document.location.hostname +  "?playlist="+playlist+"&title=" + encodeURIComponent(placeholder)} text={" The word '" + frequentWord.word + "' appears " + frequentWord.times +" times in '" + placeholder + "' playlist of Spotify. Click to know more!"} title="Spotify Wordcloud"></ShareComponent></div>}
@@ -173,6 +174,9 @@ const SpotifyWordCloud = () => {
             justify-items:center;
             text-align:center;
             margin: 20px 0;
+        }
+        h6 {
+            text-align:center;
         }
         h4 {
             text-align:center;
