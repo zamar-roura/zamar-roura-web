@@ -67,6 +67,12 @@ const SpotifyWordCloud = () => {
 
     async function fetchPlaylist(playlistID) {
         try{
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                "event":"search-playlist",
+                "playlist": playlistID,
+                "title":encodeURIComponent(placeholder)
+            });
             setError('')
             setFinished(false)
             document.getElementById('my_dataviz').style.display = "none"
@@ -90,7 +96,6 @@ const SpotifyWordCloud = () => {
             }
             document.getElementById("loading").style.display = "block";
             document.getElementById('my_dataviz').style.display = "block"
-            console.log(myWords);
             WordCloud(document.getElementById('my_dataviz'), { list: myWords,color:colorFunction,hover:hoverFunction,shrinkToFit:true } );
             document.getElementById("loading").style.display = "none";
             document.getElementById("loading-text").style.display = "none";
@@ -99,6 +104,7 @@ const SpotifyWordCloud = () => {
         }
         catch(error){
             setError("Couldn't find playlist,try another one.")
+            console.log(error);
             document.getElementById("loading").style.display = "none";
             document.getElementById("loading-text").style.display = "none";
         }
