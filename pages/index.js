@@ -196,7 +196,7 @@ const SpotifyWordCloud = () => {
 
         h1 {
             text-align:center;
-            color:red;
+            c
         }
         h2 {
             text-align:center;
