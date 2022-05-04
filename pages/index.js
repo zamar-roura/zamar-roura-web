@@ -165,6 +165,7 @@ const SpotifyWordCloud = () => {
       <meta name="theme-color" content="#ffffff" />
     </Head>
         <div className='container'>
+            <h1>The server is currently down. Come back in a bit. Thank you for all the support :)</h1> 
             <h2>Find the most frequent words in the playlist lyrics</h2> 
             <h6>*It must be public and with less than 150 songs.</h6> 
             {error && <h4>{error}</h4>}
