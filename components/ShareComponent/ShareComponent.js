@@ -11,9 +11,7 @@ function ShareComponent({url, text, title }) {
     if (navigator.share) {
       try {
         window.dataLayer.push({
-          event:"share-event",
-          url:url,
-          title:title
+          event:"share-event"
         });
         await navigator
           .share(shareDetails)

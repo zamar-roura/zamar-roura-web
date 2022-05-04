@@ -71,7 +71,7 @@ const SpotifyWordCloud = () => {
             window.dataLayer.push({
                 "event":"search-playlist",
                 "playlist": playlistID,
-                "title":encodeURIComponent(placeholder)
+                "title":placeholder
             });
             setError('')
             setFinished(false)
