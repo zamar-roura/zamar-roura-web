@@ -27,7 +27,7 @@ const SpotifyWordCloud = () => {
                 Authorization: "Bearer "+token,
                 "Content-Type": "application/json"
                      }
-                })
+                });
         const deepData = await deepSearch.json()
        
         if(deepData && !deepData.error){
@@ -80,6 +80,11 @@ const SpotifyWordCloud = () => {
             document.getElementById("loading-text").style.display = "block";
             const response = await fetch("https://zamar-projects.ddns.net/playlist/" + playlistID);
             const myWords = await response.json();
+            const myWordsDict = {};
+
+            for (var word of myWords){
+                myWordsDict[word[0]] = word[1]
+            }
             //Save the data for later use
             setFrequentWord({"word":myWords[0][0],"times":myWords[0][1]})
             const WordCloud =(await import('wordcloud')).default
@@ -88,7 +93,7 @@ const SpotifyWordCloud = () => {
               };
             const hoverFunction = function(item,dimension,event){
                 if (item){
-                    setModalOptions({x:event['pageX'],y:event['pageY'],word:item[0],frequency:item[1]})
+                    setModalOptions({x:event['pageX'],y:event['pageY'],word:item[0],frequency:myWordsDict[item[0]]})
                 }
                 else {
                     setModalOptions({})
@@ -99,7 +104,6 @@ const SpotifyWordCloud = () => {
             WordCloud(document.getElementById('my_dataviz'), { list: myWords,color:colorFunction,hover:hoverFunction,shrinkToFit:true } );
             document.getElementById("loading").style.display = "none";
             document.getElementById("loading-text").style.display = "none";
-
             setFinished(true)
         }
         catch(error){
