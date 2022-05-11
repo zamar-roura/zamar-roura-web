@@ -6,5 +6,8 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
-/*
-  X-Frame-Options: SAMEORIGIN
+[[headers]]
+  # Define which paths this specific [[headers]] block will cover.
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
