@@ -1,9 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./ShareComponent.module.css";
 import Button from '@mui/material/Button';
-import Image from 'next/image'
-import SVG from './share.svg'
-import { style } from "@mui/system";
+
 function ShareComponent({url, text, title }) {
   const shareDetails = {url, title, text};
 

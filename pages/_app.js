@@ -10,7 +10,8 @@ function MyApp({ Component, pageProps }) {
       />
 
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z2BVY8Y6H2" />
-
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7813212113166422"
+        crossorigin="anonymous"></script>
        <script
         dangerouslySetInnerHTML={{
           __html: `
