@@ -19,6 +19,8 @@
   margin:50px auto;
   max-width: 650px;
   padding: 5px;
+  display:flex;
+  flex-direction: column;
 }
 
 @media screen and (max-width: 600px) {

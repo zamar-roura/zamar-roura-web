@@ -144,6 +144,9 @@ const SpotifyWordCloud = () => {
         })()
     },[]) 
 
+    const kofi = 
+    `<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support me on Ko-Fi', '#29abe0', 'E1E8CSM20');kofiwidget2.draw();</script> `
+
     return (<>
     <Head>
       <meta name="twitter:card" content="summary" />
@@ -171,18 +174,25 @@ const SpotifyWordCloud = () => {
         <div className='container'>
             {/* <h1>The server is currently down. Come back in a bit. Thank you for all the support :)</h1>  */}
             <h2>Find the most frequent words in the playlist lyrics</h2> 
-            <h6>*It must be public and with less than 150 songs.</h6> 
+            <div id="subtext"><div>*It must be public and with less than 150 songs.</div>   <div dangerouslySetInnerHTML={{ __html: kofi }}/></div>
             {error && <h4>{error}</h4>}
             <SearchBar playlist={playlist} searchFunction={handleFilter} clearInputHandler={clearInputHandler} placeholder={placeholder} readOnly={readOnly}/>
             {finished && <div id ="share"><ShareComponent  url={"https://"+ document.location.hostname +  "?playlist="+playlist+"&title=" + encodeURIComponent(placeholder)} text={" The word '" + frequentWord.word + "' appears " + frequentWord.times +" times in '" + placeholder + "' playlist of Spotify. Click to know more!"} title="Spotify Wordcloud"></ShareComponent></div>}
                 <div id ="loading" className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                 <div id ="loading-text" > I'm running on a 1GB RAM server, be patient :)</div>
                 <div id="my_dataviz"></div>
+              
             {Object.keys(modalOptions).length > 0 && <InfoComponent modalOptions={modalOptions}></InfoComponent>}
         </div>
 
         <style jsx>{`
-        
+        #subtext{
+            display:flex;
+            flex-direction: row;
+            align-items:center;
+            justify-content:center;
+            align-text:center;
+        }
         #loading-text{
             text-align:center;
             color:white;
@@ -219,6 +229,7 @@ const SpotifyWordCloud = () => {
 
   
         #my_dataviz {
+            display:none;
             width:100%;
             height: 900px;
            
