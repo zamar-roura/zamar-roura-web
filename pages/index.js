@@ -174,7 +174,7 @@ const SpotifyWordCloud = () => {
         <div className='container'>
             {/* <h1>The server is currently down. Come back in a bit. Thank you for all the support :)</h1>  */}
             <h2>Find the most frequent words in the playlist lyrics</h2> 
-            <div id="subtext"><div>*It must be public and with less than 150 songs.</div>   <div dangerouslySetInnerHTML={{ __html: kofi }}/></div>
+            <div id="subtext"><div dangerouslySetInnerHTML={{ __html: kofi }}/> <h6>*It must be public and with less than 150 songs.</h6>   </div>
             {error && <h4>{error}</h4>}
             <SearchBar playlist={playlist} searchFunction={handleFilter} clearInputHandler={clearInputHandler} placeholder={placeholder} readOnly={readOnly}/>
             {finished && <div id ="share"><ShareComponent  url={"https://"+ document.location.hostname +  "?playlist="+playlist+"&title=" + encodeURIComponent(placeholder)} text={" The word '" + frequentWord.word + "' appears " + frequentWord.times +" times in '" + placeholder + "' playlist of Spotify. Click to know more!"} title="Spotify Wordcloud"></ShareComponent></div>}
@@ -192,6 +192,16 @@ const SpotifyWordCloud = () => {
             align-items:center;
             justify-content:center;
             align-text:center;
+            gap:40px;
+        }
+        @media screen and (max-width: 600px) {
+            #subtext{
+                display:flex;
+                flex-direction: column;
+                align-items:center;
+                justify-content:center;
+                gap:0px;
+            }
         }
         #loading-text{
             text-align:center;
@@ -205,9 +215,6 @@ const SpotifyWordCloud = () => {
             justify-items:center;
             text-align:center;
             margin: 20px 0;
-        }
-        h6 {
-            text-align:center;
         }
         h4 {
             text-align:center;
