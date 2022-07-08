@@ -143,10 +143,6 @@ const SpotifyWordCloud = () => {
             }
         })()
     },[]) 
-
-    const kofi = 
-    `<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support me on Ko-Fi', '#29abe0', 'E1E8CSM20');kofiwidget2.draw();</script> `
-
     return (<>
     <Head>
       <meta name="twitter:card" content="summary" />
@@ -174,7 +170,6 @@ const SpotifyWordCloud = () => {
         <div className='container'>
             {/* <h1>The server is currently down. Come back in a bit. Thank you for all the support :)</h1>  */}
             <h2>Find the most frequent words in the playlist lyrics</h2> 
-            <div id="subtext"><div dangerouslySetInnerHTML={{ __html: kofi }}/> <h6>*It must be public and with less than 150 songs.</h6>   </div>
             {error && <h4>{error}</h4>}
             <SearchBar playlist={playlist} searchFunction={handleFilter} clearInputHandler={clearInputHandler} placeholder={placeholder} readOnly={readOnly}/>
             {finished && <div id ="share"><ShareComponent  url={"https://"+ document.location.hostname +  "?playlist="+playlist+"&title=" + encodeURIComponent(placeholder)} text={" The word '" + frequentWord.word + "' appears " + frequentWord.times +" times in '" + placeholder + "' playlist of Spotify. Click to know more!"} title="Spotify Wordcloud"></ShareComponent></div>}
